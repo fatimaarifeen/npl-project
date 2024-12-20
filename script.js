@@ -27,5 +27,14 @@ function startWebcam(){
         Image_format: 'jpeg',
         jpeg_quality: 90
     });
-    Webcam.attach('#camera')
+    Webcam.attach('#camera');
+}
+
+function takeSelfie(){
+    Webcam.snap((dataUri)=>{
+        const link = document.createElement('a');
+        link.href = dataUri;
+        link.download = "fatima.jpg";
+        link.click();
+    });
 }
