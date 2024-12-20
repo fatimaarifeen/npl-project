@@ -11,3 +11,21 @@ function startSpeechToText(){
         alert('Speech Recogination error detected: '  + event.error);
     };
 }
+
+function startTextToSpeech(){
+    const text = document.getElementById("speechOutput").value;
+    const Speech = new SpeechSynthesisUtterance(text);
+    window.speechSynthesis.speak(Speech);
+}
+
+function startWebcam(){
+    const camera= document.getElementById("camera")
+    camera.style.display = 'block';
+    Webcam.set({
+        width:320,
+        height:240,
+        Image_format: 'jpeg',
+        jpeg_quality: 90
+    });
+    Webcam.attach('#camera')
+}
